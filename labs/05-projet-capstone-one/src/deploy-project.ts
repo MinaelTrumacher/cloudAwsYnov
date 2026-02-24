@@ -31,8 +31,8 @@ const iamClient = new IAMClient({ region });
 // Nom des ressources
 const API_NAME = 'ships-api-capstone';
 const STAGE_NAME = 'dev';
-const BUCKET_NAME = 'emile-nathan-minh-ec2-instance'; // Nom du bucket S3
-const TABLE_NAME = `ENM-VerifMaritime`; // Nom de la table DynamoDB (à adapter)
+const BUCKET_NAME = 's3-lab-cli-emile-nathan-minh-1771927656'; // Nom du bucket S3
+const TABLE_NAME = `ENM-VerifMaritime`; // Nom de la table DynamoDB 
 
 /**
  * Récupère l'ARN d'un rôle IAM
