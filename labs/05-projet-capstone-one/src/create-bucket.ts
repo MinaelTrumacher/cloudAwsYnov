@@ -17,7 +17,7 @@ const s3Client = new S3Client({
 });
 
 // Nom du bucket à créer
-const BUCKET_NAME = 's3-lab-cli-emile-nathan-minh-1771927656'; // Modifiez ce nom si nécessaire
+const BUCKET_NAME = 's3-lab-cli-emile-nathan-minh-1771927657'; // Modifiez ce nom si nécessaire
 
 /**
  * Crée un bucket S3 avec la configuration appropriée
