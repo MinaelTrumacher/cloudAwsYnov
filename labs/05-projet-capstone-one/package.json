@@ -17,7 +17,9 @@
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write src/**/*.ts",
     "format:check": "prettier --check src/**/*.ts",
-    "deploy": "npx ts-node src/deploy-project.ts"
+    "deploy": "npx ts-node src/deploy-project.ts",
+    "destroy": "npx ts-node src/destroy-project.ts",
+    "create-bucket": "npx ts-node src/create-bucket.ts"
   },
   "keywords": [
     "aws",
