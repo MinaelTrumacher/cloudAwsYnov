@@ -3,11 +3,13 @@ import {
   GetRestApisCommand,
   DeleteRestApiCommand,
 } from '@aws-sdk/client-api-gateway';
+import {DeleteTableCommand, DescribeTableCommand, DynamoDBClient} from "@aws-sdk/client-dynamodb";
 
 // Configuration
 const region = 'eu-west-1';
 const apiGatewayClient = new APIGatewayClient({ region });
-
+const dynamoClient = new DynamoDBClient({ region });
+const DB_NAME = 'ENM-VerifMaritime';
 const API_NAME = 'ships-api-capstone';
 
 /**
@@ -44,6 +46,31 @@ async function deleteApiGateway(): Promise<void> {
   }
 }
 
+async function deleteDynamoDB(): Promise<void> {
+  try {
+    console.log('\n🗑️  Recherche de la table DynamoDB à supprimer...');
+
+    // Vérifier si la table existe
+    try {
+      await dynamoClient.send(new DescribeTableCommand({ TableName: DB_NAME }));
+    } catch (error: any) {
+      if (error.name === 'ResourceNotFoundException') {
+        console.log(`⚠️  Aucune table trouvée avec le nom "${DB_NAME}"`);
+        return;
+      }
+      throw error;
+    }
+
+    // Supprimer la table
+    await dynamoClient.send(new DeleteTableCommand({ TableName: DB_NAME }));
+    console.log(`  ✅ Table DynamoDB "${DB_NAME}" supprimée avec succès`);
+  } catch (error) {
+    console.error('❌ Erreur lors de la suppression de la table DynamoDB:', error);
+    throw error;
+  }
+}
+
+
 // Main function to execute destructive operation
 async function main() {
   try {
@@ -53,8 +80,8 @@ async function main() {
     // Delete API Gateway
     await deleteApiGateway();
 
-    // Delete DynamoDB (sera géré par le collègue)
-    console.log('\n🗄️  DynamoDB sera supprimé par le collègue');
+    // Delete DynamoDB
+    await deleteDynamoDB()
 
     // Delete S3 (sera géré séparément)
     console.log('\n📦 S3 sera supprimé séparément');
