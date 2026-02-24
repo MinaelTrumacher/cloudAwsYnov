@@ -1,26 +1,59 @@
-# Projet Capstone One - Architecture API Gateway + DynamoDB + S3
+# 🚢 Projet Capstone One - Ships API
 
-## Objectifs d'apprentissage
+## 📋 Vue d'ensemble du projet
+
+Ce projet consiste à créer une **API REST serverless complète** pour gérer une flotte de navires. L'architecture combine **API Gateway**, **DynamoDB** et **S3** pour offrir une solution scalable et économique de gestion de données et d'images.
+
+### Description
+
+Vous allez construire une API qui permet de :
+- 🖼️ Récupérer les photos des navires stockées dans S3
+- 📊 Consulter les profils détaillés des navires depuis DynamoDB
+- 📋 Lister l'ensemble de la flotte
+
+Le projet inclut une interface web de test (`checker/index.html`) permettant de valider le bon fonctionnement de tous les endpoints.
+
+### Technologies utilisées
+
+- **AWS API Gateway** - Point d'entrée REST API
+- **AWS DynamoDB** - Base de données NoSQL pour les métadonnées
+- **AWS S3** - Stockage d'objets pour les images
+- **AWS IAM** - Gestion des permissions et des rôles
+- **TypeScript** - Langage de développement
+- **AWS SDK v3** - Interaction avec les services AWS
+
+## 🎯 Objectifs d'apprentissage
 
 À la fin de ce projet, vous serez capable de :
 
-- Concevoir et implémenter une architecture serverless complète
-- Intégrer API Gateway avec DynamoDB et S3
-- Gérer l'authentification et les autorisations
-- Implémenter des opérations CRUD complètes
-- Gérer le stockage de fichiers avec S3
-- Appliquer les bonnes pratiques de sécurité AWS
+- ✅ Concevoir et implémenter une architecture serverless complète
+- ✅ Intégrer API Gateway avec DynamoDB et S3 via des rôles IAM
+- ✅ Gérer l'authentification et les autorisations AWS
+- ✅ Implémenter des opérations CRUD complètes
+- ✅ Gérer le stockage de fichiers dans S3
+- ✅ Configurer CORS pour les applications web
+- ✅ Appliquer les bonnes pratiques de sécurité AWS
+- ✅ Automatiser le déploiement et la destruction de ressources AWS
 
-## Prérequis
+## 📚 Prérequis
 
-- Avoir complété les labs 01 (EC2), 02 (S3), 03 (API Gateway), et 04 (DynamoDB)
-- Maîtriser TypeScript et le SDK AWS v3
-- Comprendre les concepts REST API
-- Session AWS SSO active avec le profil `aws-labs`
+### Connaissances requises
 
-## Durée estimée
+- ✅ Avoir complété les labs 01 (EC2), 02 (S3), 03 (API Gateway), et 04 (DynamoDB)
+- ✅ Maîtriser TypeScript et le SDK AWS v3
+- ✅ Comprendre les concepts REST API et HTTP
+- ✅ Connaissances de base en JSON
 
-**1 demi-journée** (4 heures)
+### Configuration technique
+
+- ✅ Session AWS SSO active avec le profil `aws-labs`
+- ✅ Node.js et npm installés
+- ✅ TypeScript configuré
+- ✅ AWS CLI configuré
+
+## ⏱️ Durée estimée
+
+**4 heures** (1 demi-journée)
 
 ## Architecture cible
 

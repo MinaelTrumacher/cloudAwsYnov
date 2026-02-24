@@ -4,6 +4,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./src",
+    "lib": ["ES2020"],
+    "types": ["node", "jest"],
     "paths": {
       "@/*": ["./*"]
     }
