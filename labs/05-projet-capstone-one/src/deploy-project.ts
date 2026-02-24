@@ -60,10 +60,15 @@ async function createRestApi(): Promise<string> {
     endpointConfiguration: {
       types: ['REGIONAL'],
     },
+    binaryMediaTypes: [
+      'image/*',
+      'application/octet-stream',
+      ],
   });
 
   const response = await apiGatewayClient.send(command);
   console.log(`✅ API créée avec l'ID: ${response.id}`);
+  console.log(`✅ Binary media types configurés: image/*, application/octet-stream`);
 
   return response.id!;
 }
@@ -393,6 +398,7 @@ async function createGetShipPhotoMethod(
       'method.response.header.Content-Type': 'integration.response.header.Content-Type',
       'method.response.header.Access-Control-Allow-Origin': "'*'",
     },
+    contentHandling: 'CONVERT_TO_BINARY',
   });
   await apiGatewayClient.send(integrationResponseCommand);
 
