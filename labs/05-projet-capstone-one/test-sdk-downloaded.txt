@@ -1,0 +1,4 @@
+Bonjour depuis le SDK TypeScript!
+Ce fichier a été créé le 2026-02-24T10:12:00.328Z
+Opération: Upload via SDK AWS v3
+Bucket: s3-lab-sdk-1771927915963
